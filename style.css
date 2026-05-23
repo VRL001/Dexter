@@ -1,0 +1,370 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --bg-color: #0e0505;
+    --container-bg: #150a0a;
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --accent: #e53e3e;
+    --accent-glow: rgba(229, 62, 62, 0.4);
+    --border-color: rgba(229, 62, 62, 0.15);
+    --quote-bg: #1c0e0e;
+    --transition-speed: 0.3s;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: 'Outfit', sans-serif;
+    background: radial-gradient(circle at center, #240a0a 0%, #080202 100%);
+    background-attachment: fixed;
+    color: var(--text-primary);
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    color: #ffffff;
+    letter-spacing: 1.5px;
+    font-weight: 400;
+}
+
+h1 {
+    color: var(--accent);
+    text-shadow: 0 0 15px rgba(229, 62, 62, 0.3);
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #ffffff;
+    position: relative;
+    display: inline-block;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--accent);
+}
+
+.bold {
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.container {
+    max-width: 900px;
+    width: 90%;
+    background-color: var(--container-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7);
+    margin: 40px auto;
+    padding: 45px 60px;
+    border-radius: 12px;
+    position: relative;
+    animation: fadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    overflow: hidden;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.header {
+    margin-bottom: 30px;
+}
+
+.main-title {
+    text-align: center;
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    margin-top: 10px;
+    margin-bottom: 20px;
+    animation: titlePulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes titlePulse {
+    from {
+        text-shadow: 0 0 10px rgba(229, 62, 62, 0.2);
+    }
+    to {
+        text-shadow: 0 0 20px rgba(229, 62, 62, 0.5);
+    }
+}
+
+.main-paragraph {
+    font-style: italic;
+    color: var(--text-secondary);
+    font-size: 16.5px;
+    line-height: 1.7;
+    border-left: 3px solid var(--accent);
+    padding-left: 18px;
+    margin-top: 15px;
+}
+
+.featured-image {
+    text-align: center;
+    margin: 35px 0;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--border-color);
+}
+
+.featured-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.featured-image:hover img {
+    transform: scale(1.02);
+}
+
+.featured-image figcaption {
+    background-color: rgba(21, 10, 10, 0.9);
+    color: var(--text-secondary);
+    padding: 12px;
+    font-size: 14px;
+    border-top: 1px solid var(--border-color);
+    backdrop-filter: blur(5px);
+}
+
+.biograph-container, .curiosities-container {
+    padding: 30px 0;
+    margin: 30px 0;
+    border-top: 1px dashed rgba(229, 62, 62, 0.2);
+    border-bottom: 1px dashed rgba(229, 62, 62, 0.2);
+}
+
+.biograph-container p {
+    margin-bottom: 20px;
+    color: var(--text-secondary);
+    font-size: 15.5px;
+    text-align: justify;
+}
+
+.biograph-container p:last-child {
+    margin-bottom: 0;
+}
+
+.curiosities-container ul {
+    list-style-type: none;
+    margin-top: 15px;
+}
+
+.curiosities-container li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 15px;
+    font-size: 15.5px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    /* Removida a altura fixa de 30px para evitar sobreposição no mobile */
+}
+
+.curiosities-container li::before {
+    content: '🔪';
+    position: absolute;
+    left: 0;
+    top: 2px;
+    font-size: 14px;
+    transition: transform 0.3s ease;
+}
+
+.curiosities-container li:hover::before {
+    transform: rotate(-15deg) scale(1.25);
+}
+
+.quotes-container {
+    background: linear-gradient(135deg, var(--quote-bg) 0%, #2a1212 100%);
+    padding: 25px 35px;
+    border-left: 4px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    margin: 35px 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+}
+
+.quotes-container blockquote {
+    font-weight: 500;
+    font-style: italic;
+    font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+    line-height: 1.5;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.quotes-container p {
+    font-style: normal;
+    font-size: 14px;
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.img-bold {
+    margin: 35px -60px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.img-bold img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.img-bold:hover img {
+    transform: scale(1.02);
+}
+
+.img-bold figure {
+    margin: 0;
+}
+
+.img-bold figcaption {
+    background-color: var(--container-bg);
+    color: var(--text-secondary);
+    font-weight: bold;
+    text-align: center;
+    padding: 15px 30px;
+    font-size: 14px;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Fallback para o seletor antigo .img-bold p caso necessário */
+.img-bold p {
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+    padding: 0 50px;
+    color: var(--text-secondary);
+}
+
+.moreninfo-container {
+    margin-top: 30px;
+}
+
+.moreninfo-container p {
+    color: var(--text-secondary);
+    font-size: 15.5px;
+    margin-bottom: 15px;
+}
+
+.moreninfo-container a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px dashed rgba(229, 62, 62, 0.4);
+    transition: all var(--transition-speed) ease;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+.moreninfo-container a:hover {
+    background-color: rgba(229, 62, 62, 0.1);
+    color: #ffffff;
+    border-bottom: 1px solid var(--accent);
+    box-shadow: 0 0 8px rgba(229, 62, 62, 0.25);
+}
+
+/* ==========================================================
+   MEDIA QUERIES - RESPONSIVIDADE
+   ========================================================== */
+
+/* Notebooks e Desktops Médios */
+@media (max-width: 992px) {
+    .container {
+        width: 95%;
+        padding: 35px 40px;
+        margin: 30px auto;
+    }
+    .img-bold {
+        margin: 30px -40px;
+    }
+}
+
+/* Celulares e Tablets */
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        margin: 0;
+        padding: 25px 20px;
+    }
+    
+    h2 {
+        font-size: 24px;
+    }
+    
+    .biograph-container p {
+        text-align: left;
+        font-size: 15px;
+    }
+    
+    .quotes-container {
+        padding: 20px 25px;
+        margin: 25px 0;
+    }
+    
+    .img-bold {
+        margin: 25px -20px;
+    }
+    
+    .img-bold figcaption {
+        padding: 10px 20px;
+    }
+    
+    .curiosities-container li {
+        font-size: 14.5px;
+    }
+}
+
+/* Celulares Pequenos */
+@media (max-width: 480px) {
+    .container {
+        padding: 20px 15px;
+    }
+    
+    .img-bold {
+        margin: 20px -15px;
+    }
+    
+    .quotes-container {
+        padding: 15px 18px;
+    }
+}
