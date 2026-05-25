@@ -186,7 +186,6 @@ h2::after {
     font-size: 15.5px;
     color: var(--text-secondary);
     line-height: 1.6;
-    /* Removida a altura fixa de 30px para evitar sobreposição no mobile */
 }
 
 .curiosities-container li::before {
@@ -263,8 +262,8 @@ h2::after {
     font-size: 14px;
     border-top: 1px solid var(--border-color);
 }
+git push -u origin main
 
-/* Fallback para o seletor antigo .img-bold p caso necessário */
 .img-bold p {
     font-weight: bold;
     text-align: center;
